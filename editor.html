@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor de Puntos — JT Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="editor-topbar">
+  <div class="editor-topbar__logo">JT<span>STUDIO</span></div>
+  <div class="editor-topbar__center">
+    <div class="editor-prop-tabs" id="propTabs"></div>
+    <div class="editor-topbar__title">Editor — <span id="editorPropLabel"></span></div>
+  </div>
+  <div class="editor-topbar__actions">
+    <button class="btn" onclick="window.open('index.html','_blank')">Ver Sitio</button>
+    <button class="btn btn--primary" onclick="openExport()">Exportar JSON</button>
+  </div>
+</div>
+
+<!-- Body -->
+<div class="editor-body">
+
+  <!-- Left: Thumbnails -->
+  <div class="editor-thumbs" id="thumbContainer"></div>
+
+  <!-- Center: Canvas -->
+  <div class="editor-canvas-wrap">
+    <div class="editor-canvas" id="editorCanvas">
+      <img id="canvasImg" src="" alt="">
+    </div>
+    <p class="editor-hint">Haz clic en la imagen para colocar un punto</p>
+  </div>
+
+  <!-- Right: Panel -->
+  <div class="editor-panel">
+
+    <!-- Form (hidden until click) -->
+    <div class="editor-form hidden" id="editorForm">
+      <p class="panel-label">Información del Punto</p>
+
+      <div class="form-group">
+        <label>Nombre *</label>
+        <input type="text" id="hsName" placeholder="Ej: Cocina modular">
+      </div>
+
+      <div class="form-group">
+        <label>Material</label>
+        <input type="text" id="hsMaterial" placeholder="Ej: MDF lacado blanco">
+      </div>
+
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="hsDesc" placeholder="Detalles adicionales..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Precio</label>
+        <input type="text" id="hsPrice" placeholder="Ej: $1.200.000">
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn--primary" onclick="saveHotspot()">Guardar</button>
+        <button class="btn" onclick="cancelForm()">Cancelar</button>
+      </div>
+    </div>
+
+    <!-- Hotspot list -->
+    <div class="editor-panel__section">
+      <p class="panel-label" style="padding-bottom:14px;">Puntos en esta imagen</p>
+    </div>
+    <div class="hs-list" id="hsList">
+      <p class="hs-list-empty">Haz clic sobre la imagen<br>para agregar un punto.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Export Overlay -->
+<div class="export-overlay" id="exportOverlay">
+  <div class="export-box">
+    <h3>Exportar puntos</h3>
+    <p>
+      Copia este JSON y pégalo en <strong>js/gallery.js</strong> dentro de la propiedad
+      <code style="color:var(--gold)">hotspots</code> del objeto <code style="color:var(--gold)">properties['1701']</code>.
+    </p>
+    <textarea id="exportOutput" readonly spellcheck="false"></textarea>
+    <div class="export-actions">
+      <button class="btn" onclick="closeExport()">Cerrar</button>
+      <button class="btn btn--primary" id="copyBtn" onclick="copyExport()">Copiar</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/editor.js"></script>
+</body>
+</html>

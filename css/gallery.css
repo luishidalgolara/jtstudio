@@ -1,0 +1,752 @@
+/* ───── PROJECTS SECTION ───── */
+.projects-section {
+  padding: 0 40px 100px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  position: relative;
+  cursor: none;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border);
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.project-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 48px var(--shadow);
+}
+
+.project-card__img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.project-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.82) contrast(1.05) saturate(0.8) sepia(0.18);
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s;
+}
+
+.project-card:hover .project-card__img img {
+  transform: scale(1.05);
+  filter: brightness(0.65) contrast(1.08) saturate(0.75) sepia(0.22);
+}
+
+/* Overlay cálido dorado permanente */
+.project-card__img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, transparent 40%, rgba(26,18,10,0.55) 100%),
+    linear-gradient(135deg, rgba(168,136,74,0.12) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 20px 24px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.project-card:hover .project-card__overlay {
+  opacity: 1;
+}
+
+.project-card__count {
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: rgba(201,169,110,0.9);
+  color: var(--dark);
+  padding: 8px 14px;
+  font-weight: 500;
+}
+
+.project-card__explore {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.project-card:hover .project-card__explore {
+  opacity: 1;
+}
+
+.project-card__explore-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-card__explore-icon {
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(201,169,110,0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.project-card__explore-text {
+  font-size: 0.82rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.project-card__info {
+  padding: 28px 32px 32px;
+  background: var(--white);
+}
+
+.project-card__location {
+  font-size: 0.82rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+}
+
+.project-card__title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.project-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 6px;
+  cursor: none;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  transition: gap 0.3s, color 0.3s;
+}
+
+.project-card:hover .project-card__btn {
+  gap: 16px;
+  color: var(--gold-dark);
+}
+
+
+/* ───── GALLERY MODAL ───── */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  background: rgba(248,245,240,0.98);
+}
+
+.gallery-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Header */
+.gallery-modal__header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
+}
+
+.gallery-modal.open .gallery-modal__header {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-modal__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gallery-modal__location {
+  font-size: 0.52rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+}
+
+.gallery-modal__title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.gallery-modal__meta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.gallery-modal__counter {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--stone);
+  letter-spacing: 0.1em;
+}
+
+.gallery-modal__counter span {
+  color: var(--gold-dark);
+}
+
+.gallery-modal__close {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--stone);
+  font-size: 1rem;
+  cursor: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.gallery-modal__close:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* Stage */
+.gallery-modal__stage {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 80px;
+  background: var(--bg-2);
+}
+
+.gallery-modal__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  user-select: none;
+}
+
+.gallery-modal__img.fade-out {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+.gallery-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--stone);
+  font-size: 1rem;
+  cursor: none;
+  transition: border-color 0.3s, color 0.3s, box-shadow 0.3s;
+  z-index: 2;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.gallery-modal__nav:hover {
+  border-color: var(--gold-dark);
+  color: var(--ink);
+  box-shadow: 0 6px 28px var(--shadow);
+}
+
+.gallery-modal__nav--prev { left: 16px; }
+.gallery-modal__nav--next { right: 16px; }
+
+/* Thumbs */
+.gallery-modal__thumbs {
+  flex-shrink: 0;
+  display: flex;
+  gap: 6px;
+  padding: 14px 40px 20px;
+  overflow-x: auto;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s 0.15s, opacity 0.5s 0.15s;
+}
+
+.gallery-modal.open .gallery-modal__thumbs {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-modal__thumb {
+  flex-shrink: 0;
+  width: 68px;
+  height: 52px;
+  object-fit: cover;
+  opacity: 0.4;
+  border: 1px solid transparent;
+  cursor: none;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+
+.gallery-modal__thumb:hover {
+  opacity: 0.75;
+}
+
+.gallery-modal__thumb.active {
+  opacity: 1;
+  border-color: var(--gold-dark);
+}
+
+/* ── PDF / PROYECTO MODAL ── */
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+.pdf-modal.open { opacity: 1; visibility: visible; }
+
+.pdf-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,23,20,0.78);
+  backdrop-filter: blur(14px);
+}
+
+.pdf-modal__box {
+  position: relative;
+  z-index: 1;
+  width: 98vw;
+  height: 97vh;
+  max-width: 1500px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 40px 120px rgba(26,23,20,0.3);
+  transform: translateY(32px) scale(0.97);
+  transition: transform 0.5s;
+}
+.pdf-modal.open .pdf-modal__box { transform: translateY(0) scale(1); }
+
+/* Header */
+.pdf-modal__header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.pdf-modal__header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pdf-modal__eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.pdf-modal__eyebrow span { color: var(--gold-dark); }
+.pdf-modal__title {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 300;
+}
+.pdf-modal__close {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--stone);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+.pdf-modal__close:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Body: dos columnas */
+.pdf-modal__body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  overflow: hidden;
+}
+
+/* ─ Columna contacto ─ */
+.pdf-modal__contact {
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  padding: 32px 32px 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+.pdf-modal__contact-intro {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--stone);
+  font-weight: 300;
+  border-left: 2px solid var(--gold-dark);
+  padding-left: 14px;
+}
+
+/* Formulario */
+.pdf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pdf-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pdf-form__group label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 400;
+}
+.pdf-form__group input,
+.pdf-form__group textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.3s;
+  resize: none;
+}
+.pdf-form__group input:focus,
+.pdf-form__group textarea:focus { border-color: var(--gold-dark); }
+.pdf-form__group textarea { height: 80px; line-height: 1.7; }
+
+.pdf-form__submit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  background: var(--ink);
+  color: var(--white);
+  border: none;
+  padding: 14px 28px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+  margin-top: 4px;
+}
+.pdf-form__submit:hover { background: var(--gold-dark); }
+
+/* Datos de contacto */
+.pdf-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+.pdf-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pdf-contact-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 400;
+}
+.pdf-contact-item a,
+.pdf-contact-item span {
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 300;
+  transition: color 0.3s;
+}
+.pdf-contact-item a:hover { color: var(--gold-dark); }
+
+/* Botón WhatsApp */
+.pdf-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: var(--white);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 14px 20px;
+  transition: background 0.3s;
+}
+.pdf-whatsapp-btn:hover { background: #1ebe57; }
+
+/* ─ Columna PDF ─ */
+.pdf-modal__viewer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.pdf-modal__viewer-label {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 400;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+.pdf-modal__viewer-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.pdf-modal__viewer-wrap iframe {
+  width: 100%;
+  height: calc(100% + 40px);
+  margin-top: -40px;
+  border: none;
+  display: block;
+}
+/* Bloquea la barra de herramientas del PDF (descarga/imprimir) */
+.pdf-modal__viewer-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 44px;
+  background: var(--white);
+  z-index: 2;
+  pointer-events: none;
+}
+/* Bloquea clic derecho sobre el iframe */
+.pdf-modal__viewer-block {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── HOTSPOTS EN GALERÍA ── */
+.gallery-dots-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.gallery-dot {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.gallery-dot__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.85);
+  animation: gdPulse 2.5s ease-in-out infinite;
+}
+
+.gallery-dot__core {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 12px; height: 12px;
+  background: var(--white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.28);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.gallery-dot:hover .gallery-dot__core,
+.gallery-dot.active .gallery-dot__core {
+  background: var(--gold);
+  transform: translate(-50%, -50%) scale(1.35);
+}
+
+@keyframes gdPulse {
+  0%, 100% { transform: scale(1);   opacity: 0.75; }
+  50%       { transform: scale(2);   opacity: 0.1;  }
+}
+
+/* Popup card */
+.gallery-dot__popup {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 16px);
+  transform: translateY(-50%) translateX(-8px);
+  width: 215px;
+  background: var(--white);
+  border-top: 2px solid var(--gold-dark);
+  padding: 16px 18px 14px;
+  box-shadow: 0 16px 48px rgba(26,23,20,0.16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s, visibility 0.28s, transform 0.28s;
+  z-index: 30;
+}
+
+.gallery-dot.active .gallery-dot__popup {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Popup hacia la izquierda cuando el punto está en el lado derecho */
+.gallery-dot--left .gallery-dot__popup {
+  left: auto;
+  right: calc(100% + 16px);
+  transform: translateY(-50%) translateX(8px);
+}
+
+.gallery-dot--left.active .gallery-dot__popup {
+  transform: translateY(-50%) translateX(0);
+}
+
+.gallery-dot__popup-name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.gallery-dot__popup-mat {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.gallery-dot__popup-desc {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--stone);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gallery-dot__popup-price {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  font-weight: 600;
+}
