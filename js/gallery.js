@@ -13,6 +13,51 @@ const properties = {
       'imagen/1501/WhatsApp Image 2026-04-28 at 07.21.23.jpeg'
     ]
   },
+  'futuro-angol': {
+    title: 'FUTURO ANGOL',
+    location: 'ANGOL',
+    images: [
+      'imagen/futuro angol/1.png',
+      'imagen/futuro angol/Edificio-futuro-angol-01.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-02.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-03.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-04.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-05.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-06.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-23.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-24.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-25.jpg',
+      'imagen/futuro angol/Edificio-futuro-angol-26.jpg'
+    ]
+  },
+  'futuro-maipu': {
+    title: 'FUTURO MAIPÚ',
+    location: 'MAIPÚ',
+    images: [
+      'imagen/futuro maipu/1.png',
+      'imagen/futuro maipu/futuro-maipu-1.jpg',
+      'imagen/futuro maipu/futuro-maipu-2.jpg',
+      'imagen/futuro maipu/futuro-maipu-4.jpg',
+      'imagen/futuro maipu/futuro-maipu-9.jpg',
+      'imagen/futuro maipu/futuro-maipu-10.jpg',
+      'imagen/futuro maipu/futuro-maipu-11.jpg',
+      'imagen/futuro maipu/futuro-maipu-12.jpg',
+      'imagen/futuro maipu/futuro-maipu-13.jpg',
+      'imagen/futuro maipu/futuro-maipu-14.jpg',
+      'imagen/futuro maipu/futuro-maipu-15.jpg',
+      'imagen/futuro maipu/futuro-maipu-16.jpg',
+      'imagen/futuro maipu/futuro-maipu-17.jpg',
+      'imagen/futuro maipu/futuro-maipu-18.jpg',
+      'imagen/futuro maipu/futuro-maipu-22.jpg',
+      'imagen/futuro maipu/futuro-maipu-23.jpg',
+      'imagen/futuro maipu/futuro-maipu-24.jpg',
+      'imagen/futuro maipu/futuro-maipu-25.jpg',
+      'imagen/futuro maipu/futuro-maipu-26.jpg',
+      'imagen/futuro maipu/futuro-maipu-27.jpg',
+      'imagen/futuro maipu/ifuturo-maipu-aerea-galeria-02.jpg',
+      'imagen/futuro maipu/ifuturo-maipu-galeria-01.jpg'
+    ]
+  },
   '1701': {
     title: '1701 EDIFICIO RODRIGUEZ PINTO',
     location: 'CONCEPCIÓN',
@@ -243,16 +288,35 @@ function closePDF() {
   document.body.style.overflow = '';
 }
 
+let designImages = [];
+let designIndex  = 0;
+
 function openDesignImg(src) {
-  const lb = document.getElementById('designLightbox');
-  document.getElementById('designLightboxImg').src = src;
-  lb.classList.add('open');
+  designImages = Array.from(document.querySelectorAll('.design-gallery img')).map(i => i.src);
+  designIndex  = designImages.indexOf(src);
+  showDesignImg(designIndex);
+  document.getElementById('designLightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showDesignImg(idx) {
+  designIndex = (idx + designImages.length) % designImages.length;
+  document.getElementById('designLightboxImg').src = designImages[designIndex];
+  document.getElementById('designLightboxCounter').textContent =
+    (designIndex + 1) + ' / ' + designImages.length;
+}
+
+function designLightboxNav(dir) {
+  showDesignImg(designIndex + dir);
 }
 
 function closeDesignImg() {
   document.getElementById('designLightbox').classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closePDF(); closeDesignImg(); }
+  if (e.key === 'ArrowRight' && document.getElementById('designLightbox').classList.contains('open')) designLightboxNav(1);
+  if (e.key === 'ArrowLeft'  && document.getElementById('designLightbox').classList.contains('open')) designLightboxNav(-1);
 });

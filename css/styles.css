@@ -150,8 +150,7 @@ nav.scrolled .nav-logo-name { color: var(--ink); }
   text-shadow: 0 1px 6px rgba(0,0,0,0.35);
 }
 .nav-links li:nth-child(1) a,
-.nav-links li:nth-child(2) a,
-.nav-links li:nth-child(3) a {
+.nav-links li:nth-child(2) a {
   color: var(--ink);
   text-shadow: none;
 }
@@ -773,6 +772,93 @@ nav.scrolled .nav-links a:hover { color: var(--ink); }
   font-family: 'Josefin Sans', sans-serif;
 }
 .modal-cta:hover { background: var(--gold-dark); }
+
+/* ── NOSOTROS ── */
+.about-dark {
+  background: var(--ink);
+  color: var(--white);
+  padding: 100px 60px;
+}
+.about-dark__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-dark__header {
+  margin-bottom: 64px;
+  border-left: 3px solid var(--gold-dark);
+  padding-left: 24px;
+}
+.about-dark__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+.about-dark__title {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.about-dark__title span { color: var(--gold-dark); }
+.about-dark__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-dark__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.about-dark__text p {
+  font-size: 1.08rem;
+  line-height: 2;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+}
+.about-dark__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.about-dark__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.about-dark__stat-num {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.about-dark__stat-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+}
+.about-dark__divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold-dark);
+  opacity: 0.5;
+}
+.about-dark__closing {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  font-style: italic;
+}
 
 /* ── FOOTER ── */
 footer {

@@ -28,12 +28,12 @@
     <span class="nav-logo-line"></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#" onclick="openPDF(); return false;">Galería</a></li>
     <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#destacado">Nosotros</a></li>
+    <li><a href="#nosotros-section">Nosotros</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a href="#" class="nav-cta" onclick="openPDF(); return false;">Solicitar Proyecto</a>
+  <a href="#proyectos" class="nav-cta">Ver Proyectos</a>
 </nav>
 
 <!-- Hero -->
@@ -53,7 +53,7 @@
       </div>
       <div class="hero-line"></div>
       <p class="hero-sub">Creamos espacios culinarios únicos donde el diseño de vanguardia se fusiona con materiales de primera calidad. Cada proyecto pensado para ti.</p>
-      <a href="#galeria" class="hero-btn">Explorar colección <span>→</span></a>
+      <a href="#" class="hero-btn" onclick="openPDF(); return false;">Explorar colección <span>→</span></a>
       <div class="hero-mini-stats">
         <div class="hero-mini-stat">
           <span class="hero-mini-num">1000+</span>
@@ -105,7 +105,7 @@
       <li>Instalación profesional certificada</li>
       <li>Garantía de 5 años en estructura</li>
     </ul>
-    <a href="#" class="featured-link" onclick="openPDF(); return false;">Comenzar mi proyecto →</a>
+    <a href="#" class="featured-link" onclick="openPDF(); return false;">Galería Completa →</a>
   </div>
 </section>
 
@@ -159,7 +159,87 @@
           <button class="project-card__btn">Explorar departamento →</button>
         </div>
       </div>
+
+      <!-- Futuro Angol -->
+      <div class="project-card" onclick="openGallery('futuro-angol')">
+        <div class="project-card__img">
+          <img src="imagen/futuro angol/1.png" alt="Futuro Angol">
+          <div class="project-card__overlay">
+            <span class="project-card__count">11 fotos</span>
+          </div>
+          <div class="project-card__explore">
+            <div class="project-card__explore-inner">
+              <div class="project-card__explore-icon">&#8599;</div>
+              <span class="project-card__explore-text">Ver Galería</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card__info">
+          <p class="project-card__location">ANGOL</p>
+          <h3 class="project-card__title">FUTURO ANGOL</h3>
+          <button class="project-card__btn">Explorar departamento →</button>
+        </div>
+      </div>
+
+      <!-- Futuro Maipú -->
+      <div class="project-card" onclick="openGallery('futuro-maipu')">
+        <div class="project-card__img">
+          <img src="imagen/futuro maipu/1.png" alt="Futuro Maipú">
+          <div class="project-card__overlay">
+            <span class="project-card__count">22 fotos</span>
+          </div>
+          <div class="project-card__explore">
+            <div class="project-card__explore-inner">
+              <div class="project-card__explore-icon">&#8599;</div>
+              <span class="project-card__explore-text">Ver Galería</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card__info">
+          <p class="project-card__location">MAIPÚ</p>
+          <h3 class="project-card__title">FUTURO MAIPÚ</h3>
+          <button class="project-card__btn">Explorar departamento →</button>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
+
+<!-- Nosotros -->
+<section id="nosotros-section" class="about-dark">
+  <div class="about-dark__inner">
+
+    <div class="about-dark__header">
+      <p class="about-dark__eyebrow">Quiénes somos</p>
+      <h2 class="about-dark__title">Más que proveedores,<br>un <span>socio estratégico</span></h2>
+    </div>
+
+    <div class="about-dark__body">
+      <div class="about-dark__text">
+        <p>Somos una empresa especializada en el diseño y desarrollo de soluciones integrales de mobiliario para proyectos inmobiliarios. Nos enfocamos en la creación de cocinas, dormitorios y baños, abordando cada espacio con una visión técnica, funcional y estética alineada a los estándares de la industria.</p>
+        <p>Trabajamos exclusivamente en el ámbito industrial, colaborando con inmobiliarias, constructoras y desarrolladores en proyectos de edificios. No realizamos trabajos para clientes particulares, lo que nos permite concentrar toda nuestra capacidad en procesos eficientes, escalables y adaptados a obras de gran volumen.</p>
+        <p>Importamos y gestionamos mobiliario de alta calidad para proyectos completos, asegurando continuidad, precisión y cumplimiento en cada etapa, desde el diseño hasta la implementación.</p>
+      </div>
+
+      <div class="about-dark__stats">
+        <div class="about-dark__stat">
+          <span class="about-dark__stat-num">1.100+</span>
+          <span class="about-dark__stat-label">Departamentos desarrollados</span>
+        </div>
+        <div class="about-dark__stat">
+          <span class="about-dark__stat-num">3</span>
+          <span class="about-dark__stat-label">Espacios: Cocina · Dormitorio · Baño</span>
+        </div>
+        <div class="about-dark__stat">
+          <span class="about-dark__stat-num">100%</span>
+          <span class="about-dark__stat-label">Proyectos industriales y de gran volumen</span>
+        </div>
+        <div class="about-dark__divider"></div>
+        <p class="about-dark__closing">Nuestra experiencia respalda nuestra capacidad de ejecución y compromiso con cada proyecto, optimizando tiempos, costos y resultados.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -195,7 +275,7 @@
     <div class="pdf-modal__header">
       <div class="pdf-modal__header-titles">
         <span class="pdf-modal__eyebrow">JT<span>STUDIO</span></span>
-        <span class="pdf-modal__title">Comenzar mi proyecto</span>
+        <span class="pdf-modal__title">Galería Completa</span>
       </div>
       <button class="pdf-modal__close" onclick="closePDF()">✕</button>
     </div>
@@ -206,18 +286,79 @@
       <img src="gemini/2.png" alt="Diseño 2" onclick="openDesignImg(this.src)">
       <img src="gemini/Gemini_Generated_Image_1mxf891mxf891mxf.png" alt="Diseño 3" onclick="openDesignImg(this.src)">
       <img src="gemini/Gemini_Generated_Image_4xuvzr4xuvzr4xuv.png" alt="Diseño 4" onclick="openDesignImg(this.src)">
-      <img src="gemini/Gemini_Generated_Image_929dv3929dv3929d.png" alt="Diseño 5" onclick="openDesignImg(this.src)">
-      <img src="gemini/Gemini_Generated_Image_bduyfqbduyfqbduy.png" alt="Diseño 6" onclick="openDesignImg(this.src)">
-      <img src="gemini/Gemini_Generated_Image_deaehbdeaehbdeae.png" alt="Diseño 7" onclick="openDesignImg(this.src)">
+<img src="gemini/Gemini_Generated_Image_deaehbdeaehbdeae.png" alt="Diseño 7" onclick="openDesignImg(this.src)">
       <img src="gemini/Gemini_Generated_Image_eyj120eyj120eyj1.png" alt="Diseño 8" onclick="openDesignImg(this.src)">
       <img src="gemini/Gemini_Generated_Image_wyn2s4wyn2s4wyn2.png" alt="Diseño 9" onclick="openDesignImg(this.src)">
       <img src="gemini/Gemini_Generated_Image_imwu6timwu6timwu.png" alt="Diseño 10" onclick="openDesignImg(this.src)">
       <img src="gemini/Gemini_Generated_Image_xfc0hlxfc0hlxfc0.png" alt="Diseño 11" onclick="openDesignImg(this.src)">
+      <!-- 1501 -->
+      <img src="imagen/1501/1.jpeg" alt="1501" onclick="openDesignImg(this.src)">
+      <img src="imagen/1501/WhatsApp Image 2026-04-28 at 07.21.18.jpeg" alt="1501" onclick="openDesignImg(this.src)">
+      <img src="imagen/1501/WhatsApp Image 2026-04-28 at 07.21.19.jpeg" alt="1501" onclick="openDesignImg(this.src)">
+      <img src="imagen/1501/WhatsApp Image 2026-04-28 at 07.21.21.jpeg" alt="1501" onclick="openDesignImg(this.src)">
+      <img src="imagen/1501/WhatsApp Image 2026-04-28 at 07.21.22(1).jpeg" alt="1501" onclick="openDesignImg(this.src)">
+      <img src="imagen/1501/WhatsApp Image 2026-04-28 at 07.21.23(1).jpeg" alt="1501" onclick="openDesignImg(this.src)">
+      <img src="imagen/1501/WhatsApp Image 2026-04-28 at 07.21.23.jpeg" alt="1501" onclick="openDesignImg(this.src)">
+      <!-- 1701 -->
+      <img src="imagen/1701/1.jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.31 (1).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.32.jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.33 (1).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.33 (3).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.33 (4).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.33 (5).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.33 (6).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.34 (1).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.34 (3).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.34 (4).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.34 (5).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.34 (8).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.34 (9).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <img src="imagen/1701/WhatsApp Image 2026-04-28 at 07.19.34 (10).jpeg" alt="1701" onclick="openDesignImg(this.src)">
+      <!-- Futuro Angol -->
+      <img src="imagen/futuro angol/1.png" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-01.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-02.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-03.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-04.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-05.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-06.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-23.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-24.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-25.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro angol/Edificio-futuro-angol-26.jpg" alt="Angol" onclick="openDesignImg(this.src)">
+      <!-- Futuro Maipú -->
+      <img src="imagen/futuro maipu/1.png" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-1.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-2.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-4.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-9.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-10.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-11.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-12.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-13.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-14.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-15.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-16.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-17.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-18.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-22.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-23.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-24.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-25.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-26.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/futuro-maipu-27.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/ifuturo-maipu-aerea-galeria-02.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
+      <img src="imagen/futuro maipu/ifuturo-maipu-galeria-01.jpg" alt="Maipú" onclick="openDesignImg(this.src)">
     </div>
 
     <!-- Lightbox imagen -->
-    <div class="design-lightbox" id="designLightbox" onclick="closeDesignImg()">
-      <img id="designLightboxImg" src="" alt="">
+    <div class="design-lightbox" id="designLightbox">
+      <button class="design-lightbox__nav design-lightbox__nav--prev" onclick="designLightboxNav(-1)">&#8592;</button>
+      <img id="designLightboxImg" src="" alt="" onclick="closeDesignImg()">
+      <button class="design-lightbox__nav design-lightbox__nav--next" onclick="designLightboxNav(1)">&#8594;</button>
+      <span class="design-lightbox__counter" id="designLightboxCounter"></span>
+      <button class="design-lightbox__close" onclick="closeDesignImg()">✕</button>
     </div>
   </div>
 </div>
@@ -229,7 +370,7 @@
       <div class="footer-brand-name">JT<span>STUDIO</span></div>
       <div class="footer-brand-sub">Proyectos de Cocina</div>
       <div class="footer-brand-line"></div>
-      <p class="footer-brand-desc">Transformamos espacios en cocinas extraordinarias. Diseño, calidad y elegancia al servicio de tu hogar.</p>
+      <p class="footer-brand-desc">Transformamos espacios en cocinas, baños y dormitorios extraordinarios. Diseño, calidad y elegancia en cada rincón de tu hogar.</p>
     </div>
     <div class="footer-col">
       <h4>Colección</h4>
