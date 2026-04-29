@@ -227,7 +227,6 @@ function renderGalleryDots() {
         <p class="gallery-dot__popup-name">${hs.name}</p>
         <p class="gallery-dot__popup-mat">${hs.material}</p>
         <p class="gallery-dot__popup-desc">${hs.desc}</p>
-        <p class="gallery-dot__popup-price">${hs.price}</p>
       </div>
     `;
     el.addEventListener('click', e => {
