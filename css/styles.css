@@ -97,11 +97,11 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 28px 60px;
+  background: transparent;
   transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
 }
 nav.scrolled {
-  background: rgba(248,245,240,0.96);
-  backdrop-filter: blur(20px);
+  background: rgba(248,245,240,0.98);
   padding: 16px 60px;
   box-shadow: 0 1px 0 var(--border);
 }
@@ -118,7 +118,9 @@ nav.scrolled {
   letter-spacing: 0.3em;
   color: var(--ink);
   text-transform: uppercase;
+  transition: color 0.4s;
 }
+nav.scrolled .nav-logo-name { color: var(--ink); }
 .nav-logo-name span { color: var(--gold-dark); }
 .nav-logo-sub {
   font-size: 0.45rem;
@@ -141,12 +143,21 @@ nav.scrolled {
   font-size: 0.82rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--stone);
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
   transition: color 0.3s;
   font-weight: 400;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
 }
-.nav-links a:hover { color: var(--ink); }
+.nav-links li:nth-child(1) a,
+.nav-links li:nth-child(2) a,
+.nav-links li:nth-child(3) a {
+  color: var(--ink);
+  text-shadow: none;
+}
+.nav-links a:hover { color: var(--gold-dark); }
+nav.scrolled .nav-links a { color: var(--stone); text-shadow: none; }
+nav.scrolled .nav-links a:hover { color: var(--ink); }
 .nav-cta {
   font-size: 0.82rem;
   letter-spacing: 0.18em;
@@ -209,6 +220,24 @@ nav.scrolled {
 }
 
 .hero-title span {
+  color: var(--gold-dark);
+}
+
+.hero-services {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.hero-services span {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 400;
+}
+.hero-services__dot {
   color: var(--gold-dark);
 }
 
