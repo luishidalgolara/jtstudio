@@ -232,19 +232,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ── PDF Modal ─────────────────────────────────────────────────────────────────
+// ── Modal Galería Diseños ──────────────────────────────────────────────────────
 function openPDF() {
-  document.getElementById('pdfFrame').src = 'imagen/PDF/1.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH';
   document.getElementById('pdfModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function closePDF() {
   document.getElementById('pdfModal').classList.remove('open');
-  document.getElementById('pdfFrame').src = '';
   document.body.style.overflow = '';
 }
 
+function openDesignImg(src) {
+  const lb = document.getElementById('designLightbox');
+  document.getElementById('designLightboxImg').src = src;
+  lb.classList.add('open');
+}
+
+function closeDesignImg() {
+  document.getElementById('designLightbox').classList.remove('open');
+}
+
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closePDF();
+  if (e.key === 'Escape') { closePDF(); closeDesignImg(); }
 });

@@ -453,9 +453,52 @@
 /* Body: dos columnas */
 .pdf-modal__body {
   flex: 1;
-  display: grid;
-  grid-template-columns: 380px 1fr;
   overflow: hidden;
+}
+
+/* Galería de dibujos */
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 24px;
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+  background: var(--bg);
+}
+.design-gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  display: block;
+}
+.design-gallery img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* Lightbox */
+.design-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.design-lightbox.open {
+  display: flex;
+}
+.design-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
 }
 
 /* ─ Columna contacto ─ */
