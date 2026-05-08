@@ -182,3 +182,27 @@ document.querySelectorAll('.stat, .kitchen-card, .featured-content').forEach(el 
   el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
   observer.observe(el);
 });
+
+// Video cinematográfico — revelar texto al entrar en pantalla
+const cineContent = document.querySelector('.cine-video__content');
+if (cineContent) {
+  const cineObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        cineContent.classList.add('is-visible');
+        cineObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  cineObserver.observe(cineContent);
+}
+
+// Botón mute / unmute del video
+function toggleCineSound() {
+  const vid = document.getElementById('cineVid');
+  const iconMute = document.getElementById('cineIconMute');
+  const iconSound = document.getElementById('cineIconSound');
+  vid.muted = !vid.muted;
+  iconMute.style.display = vid.muted ? '' : 'none';
+  iconSound.style.display = vid.muted ? 'none' : '';
+}

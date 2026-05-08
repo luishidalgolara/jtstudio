@@ -87,6 +87,22 @@
 
 </section>
 
+<!-- Video Cinematográfico -->
+<section class="cine-video">
+  <div class="cine-video__bg">
+    <video class="cine-video__vid" id="cineVid" src="video/edificio-maipu2.mp4" autoplay muted loop playsinline></video>
+    <div class="cine-video__overlay"></div>
+  </div>
+  <div class="cine-video__sound-hint">
+    <span>Activa el sonido</span>
+    <svg viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10 Q24 3 42 10" stroke="#c9a96e" stroke-width="1" fill="none" stroke-dasharray="3 3"/><polyline points="36,5 42,10 36,15" stroke="#c9a96e" stroke-width="1.2" fill="none"/></svg>
+  </div>
+  <button class="cine-video__sound" id="cineSoundBtn" onclick="toggleCineSound()" title="Activar sonido">
+    <svg id="cineIconMute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+    <svg id="cineIconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+  </button>
+</section>
+
 <!-- Featured / Nosotros -->
 <section id="destacado" class="featured">
   <div class="featured-images">
